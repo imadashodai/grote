@@ -20,6 +20,3 @@ doc/
 .DS_Store
 .idea
 .secret
-
-Dockerfile
-docker-compose.yml
