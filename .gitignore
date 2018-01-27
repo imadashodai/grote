@@ -4,9 +4,12 @@
 # Ignore bundler gems.
 vendor/bundle
 
-# Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
+# Ignore config
+/config/secrets.yml
+/config/database.yml
+/config/settings.local.yml
+/config/settings/*.local.yml
+/config/environments/*.local.yml
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
