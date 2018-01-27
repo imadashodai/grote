@@ -12,6 +12,11 @@ class ShopsController < ApplicationController
   def show
   end
 
+  def import
+    Shop.import(params[:file])
+    redirect_to "/shops"
+  end
+
   # GET /shops/new
   def new
     @shop = Shop.new
@@ -26,8 +31,7 @@ class ShopsController < ApplicationController
   def create
     @shop = Shop.new(shop_params)
 
-    respond_to do |format|
-      if @shop.save
+    respond_to do |format| if @shop.save
         format.html { redirect_to @shop, notice: 'Shop was successfully created.' }
         format.json { render :show, status: :created, location: @shop }
       else
@@ -69,6 +73,6 @@ class ShopsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shop_params
-      params.require(:shop).permit(:name, :address, :area_id, :category_ids)
+      params.require(:shop).permit(:file)
     end
 end
