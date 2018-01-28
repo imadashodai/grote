@@ -4,16 +4,17 @@ class Shop < ApplicationRecord
   serialize :category_ids
 
   def self.import(file)
-    csv_data = CSV.read(file.path, headers: true)
+    open(file.path, "rb:Shift_JIS:UTF-8", undef: :replace ) do |f|
 
-    csv_data.each do |row|
-      shop = self.new
-      shop.name = row[0]
-      shop.address = row[1]
-      shop.area_id = row[2]
-      shop.category_ids = row[3]
+      CSV.new(f).each do |row|
+        shop = self.new
+        shop.name = row[0]
+        shop.address = row[1]
+        shop.area_id = row[2]
+        shop.category_ids = row[3]
 
-      shop.save
+        shop.save
+      end
     end
   end
 
