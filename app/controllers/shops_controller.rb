@@ -12,6 +12,10 @@ class ShopsController < ApplicationController
   def show
   end
 
+  def csv_import
+    @shop = Shop.new
+  end
+
   def import
     Shop.import(params[:file])
     redirect_to "/shops"

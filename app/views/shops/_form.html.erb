@@ -1,4 +1,35 @@
-<%= form_tag({controller: "shops", action: "import", method: "post"}, {multipart: true}) do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "インポート" %>
+<%= form_for(shop) do |f| %>
+  <% if shop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
+
+      <ul>
+      <% shop.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :area_id %>
+    <%= f.text_field :area_id %>
+  </div>
+  <div class="field">
+    <%= f.label :category_ids %>
+    <%= f.text_field :category_ids %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>
