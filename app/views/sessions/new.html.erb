@@ -1,0 +1,13 @@
+<h1>Sessions#new</h1>
+<% if flash %>
+<%= flash[:alert] %>
+<% end %>
+<%= form_for(:session, url: login_path) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label :password %>
+  <%= f.text_field :password, class: 'form-control' %>
+
+  <%= f.submit 'login', class: 'btn btn-brimary' %>
+<% end %>
