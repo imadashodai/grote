@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     admin = Admin.find_by(name: params[:session][:name])
     if admin && admin.authenticate(params[:session][:password])
       login(admin)
-      redirect_to admin
+      redirect_to backoffice_admin_path(admin)
     else
       flash.now[:alert] = 'Invalid name/password combination'
       render 'new'

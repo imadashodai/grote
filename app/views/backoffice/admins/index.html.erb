@@ -16,9 +16,9 @@
       <tr>
         <td><%= admin.name %></td>
         <td><%= admin.password_digest %></td>
-        <td><%= link_to 'Show', admin %></td>
-        <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
-        <td><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', backoffice_admin_path(admin) %></td>
+        <td><%= link_to 'Edit', edit_backoffice_admin_path(admin) %></td>
+        <td><%= link_to 'Destroy', backoffice_admin_path(admin), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Admin', new_admin_path %>
+<%= link_to 'New Admin', new_backoffice_admin_path %>

@@ -21,9 +21,9 @@
         <td><%= shop.address %></td>
         <td><%= shop.area_id %></td>
         <td><%= shop.category_ids %></td>
-        <td><%= link_to 'Show', shop %></td>
-        <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
-        <td><%= link_to 'Destroy', shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', backoffice_shop_path(shop) %></td>
+        <td><%= link_to 'Edit', edit_backoffice_shop_path(shop) %></td>
+        <td><%= link_to 'Destroy', backoffice_shop_path(shop), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
