@@ -1,4 +1,4 @@
-class AdminsController < ApplicationController
+class Backoffice::AdminsController < BackofficeController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
 
   # GET /admins
@@ -28,6 +28,7 @@ class AdminsController < ApplicationController
 
     respond_to do |format|
       if @admin.save
+        login @admin
         format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
         format.json { render :show, status: :created, location: @admin }
       else

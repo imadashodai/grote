@@ -1,4 +1,4 @@
-class AreasController < ApplicationController
+class Backoffice::AreasController < BackofficeController
   before_action :set_area, only: [:show, :edit, :update, :destroy]
 
   # GET /areas
