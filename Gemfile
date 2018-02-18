@@ -40,6 +40,12 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'rvm-capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do

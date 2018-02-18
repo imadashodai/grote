@@ -45,6 +45,18 @@ GEM
     bindex (0.5.0)
     builder (3.2.3)
     byebug (9.1.0)
+    capistrano (3.2.1)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (~> 1.3)
+    capistrano-bundler (1.3.0)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-rails (1.3.1)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+    capistrano3-unicorn (0.2.1)
+      capistrano (~> 3.1, >= 3.1.0)
     capybara (2.17.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -99,6 +111,9 @@ GEM
     minitest (5.11.1)
     multi_json (1.13.1)
     mysql2 (0.4.10)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (4.2.0)
     nio4r (1.2.1)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
@@ -153,6 +168,8 @@ GEM
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
     rubyzip (1.2.1)
+    rvm-capistrano (1.5.0)
+      capistrano (>= 2.15.4)
     sass (3.5.5)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -179,6 +196,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sshkit (1.16.0)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
@@ -209,6 +229,10 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
+  capistrano
+  capistrano-bundler
+  capistrano-rails
+  capistrano3-unicorn
   capybara
   coffee-rails (~> 4.2)
   database_cleaner
@@ -220,6 +244,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.1)
   rspec-rails
+  rvm-capistrano
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
