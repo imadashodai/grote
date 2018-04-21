@@ -41,11 +41,12 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
 
-  gem 'capistrano'
+  gem 'capistrano','~> 3.5'
   gem 'capistrano-rails'
   gem 'rvm-capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano3-unicorn'
+  gem 'sshkit-sudo'
 end
 
 group :development do

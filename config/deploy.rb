@@ -1,5 +1,5 @@
 # config valid only for Capistrano 3.1
-lock '3.2.1'
+#lock '3.2.1'
 
 set :application, 'grote'
 set :repo_url, 'https://github.com/imadashodai/grote.git'
@@ -39,6 +39,7 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets bundle public/system pub
 set :default_env, { path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" }
 set :keep_releases, 5
 
+set :use_sudo, false
 
 #namespace :deploy do
 #
@@ -63,3 +64,25 @@ set :keep_releases, 5
 #  after :finishing, 'deploy:cleanup'
 #
 #end
+#
+namespace :deploy do
+  Rake::Task["deploy:check:directories"].clear
+  Rake::Task["deploy:check:linked_dirs"].clear
+
+
+  namespace :check do
+    desc '(overwrite) Check shared and release directories exist'
+    task :directories do
+      on release_roles :all do
+        execute :sudo, :mkdir, '-pv', shared_path, releases_path
+      end
+    end
+
+    task :linked_dirs do
+      next unless any? :linked_dirs
+      on release_roles :all do
+        execute :sudo, :mkdir, '-pv', linked_dirs(shared_path)
+      end
+    end
+  end
+end
